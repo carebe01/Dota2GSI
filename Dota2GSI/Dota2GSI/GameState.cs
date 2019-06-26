@@ -148,20 +148,22 @@ namespace Dota2GSI
             }
         }
 
-        /*
-        public GameState Added
-        {
-            get
-            {
-                if (added == null)
-                    added = new GameState(GetNode("added"));
+		/// <summary>
+		/// Information added to current gamestate, may be inaccurate.
+		/// </summary>
+		public GameState Added
+		{
+			get
+			{
+				if (added == null)
+					added = new GameState(GetNode("added"));
 
-                return added;
-            }
-        }
-        */
+				return added;
+			}
+		}
 
-        private String GetNode(string name)
+
+		private String GetNode(string name)
         {
             Newtonsoft.Json.Linq.JToken value;
 

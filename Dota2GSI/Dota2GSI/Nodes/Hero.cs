@@ -125,6 +125,8 @@
         /// </summary>
         public readonly bool HasDebuff;
 
+		/// Talent only results in true or false. eg in pairs 1+2 = true when skilled one of them skilled.
+
         /// <summary>
 		/// A boolean representing whether the hero leveled talent 1
 		/// </summary>

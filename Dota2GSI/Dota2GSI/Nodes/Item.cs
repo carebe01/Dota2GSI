@@ -10,11 +10,16 @@
         /// </summary>
         public readonly string Name;
 
-        /// <summary>
-        /// The name of the rune cotnained inside this item.
-        /// <note type="note">Possible rune names: empty, arcane, bounty, double_damage, haste, illusion, invisibility, regen</note>
-        /// </summary>
-        public readonly string ContainsRune;
+		/// <summary>
+		/// Item purchaser
+		/// </summary>
+		public readonly int Purchaser;
+
+		/// <summary>
+		/// The name of the rune cotnained inside this item.
+		/// <note type="note">Possible rune names: empty, arcane, bounty, double_damage, haste, illusion, invisibility, regen</note>
+		/// </summary>
+		public readonly string ContainsRune;
 
         /// <summary>
         /// A boolean representing whether this item can be casted
@@ -39,7 +44,8 @@
         internal Item(string json_data) : base(json_data)
         {
             Name = GetString("name");
-            ContainsRune = GetString("contains_rune");
+			Purchaser = GetInt("purchaser");
+			ContainsRune = GetString("contains_rune");
             CanCast = GetBool("can_cast");
             Cooldown = GetInt("cooldown");
             IsPassive = GetBool("passive");

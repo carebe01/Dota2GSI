@@ -58,8 +58,18 @@
         /// <summary>
         /// Game is a custom game
         /// </summary>
-        DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP
-    }
+        DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP,
+
+		/// <summary>
+		/// Showcasing heroes
+		/// </summary>
+		DOTA_GAMERULES_STATE_TEAM_SHOWCASE,
+
+		/// <summary>
+		/// Wait for map to load
+		/// </summary>
+		DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD
+	}
 
     /// <summary>
     /// Enum list for each player team
@@ -130,7 +140,7 @@
         /// <summary>
         /// A boolean representing if paused or not
         /// </summary>
-        public readonly Paused;
+        public readonly bool Paused;
 
         /// <summary>
         /// The winning team

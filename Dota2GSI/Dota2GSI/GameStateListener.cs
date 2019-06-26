@@ -8,16 +8,20 @@ using System.Threading;
 namespace Dota2GSI
 {
     public delegate void NewGameStateHandler(GameState gamestate);
+	public delegate void ChangedMapState(Nodes.DOTA_GameState newGameState);
 
-    public class GameStateListener : IDisposable
+	public class GameStateListener : IDisposable
     {
-        private bool isRunning = false;
+		private bool isDisposed = false;
+		private bool isRunning = false;
         private int connection_port;
+
         private HttpListener net_Listener;
         private AutoResetEvent waitForConnection = new AutoResetEvent(false);
         private GameState currentGameState;
+		private Nodes.DOTA_GameState previousMapState;
 
-        public GameState CurrentGameState
+		public GameState CurrentGameState
         {
             get
             {
@@ -45,11 +49,16 @@ namespace Dota2GSI
         /// </summary>
         public event NewGameStateHandler NewGameState = delegate { };
 
-        /// <summary>
-        /// A GameStateListener that listens for connections on http://localhost:port/
-        /// </summary>
-        /// <param name="Port"></param>
-        public GameStateListener(int Port)
+		/// <summary>
+		///  Event for handing a newly received map state
+		/// </summary>
+		public event ChangedMapState ChangedMapState = delegate { };
+
+		/// <summary>
+		/// A GameStateListener that listens for connections on http://localhost:port/
+		/// </summary>
+		/// <param name="Port"></param>
+		public GameStateListener(int Port)
         {
             connection_port = Port;
             net_Listener = new HttpListener();
@@ -102,7 +111,6 @@ namespace Dota2GSI
                 ListenerThread.Start();
                 return true;
             }
-
             return false;
         }
 
@@ -122,7 +130,11 @@ namespace Dota2GSI
                 waitForConnection.WaitOne();
                 waitForConnection.Reset();
             }
-            net_Listener.Stop();
+			if (!isDisposed)
+			{
+				net_Listener.Stop();
+				net_Listener.Close();
+			}
         }
 
         private void ReceiveGameState(IAsyncResult result)
@@ -147,12 +159,17 @@ namespace Dota2GSI
                     response.Close();
                 }
                 CurrentGameState = new GameState(JSON);
-            }
+				previousMapState = CurrentGameState.Map.GameState;
+			}
             catch (ObjectDisposedException)
             {
                 // Intentionally left blank, when the Listener is closed.
             }
-        }
+			catch (HttpListenerException)
+			{
+				// Intentionally left blank, when the Listener is closed.
+			}
+		}
 
         private void RaiseOnNewGameState()
         {
@@ -163,11 +180,20 @@ namespace Dota2GSI
                 else
                     d.DynamicInvoke(CurrentGameState);
             }
-        }
+			foreach (Delegate d in ChangedMapState.GetInvocationList())
+			{
+				if (CurrentGameState.Map.GameState != previousMapState)
+					if (d.Target is ISynchronizeInvoke)
+						(d.Target as ISynchronizeInvoke).BeginInvoke(d, new object[] { CurrentGameState.Map.GameState });
+					else
+						d.DynamicInvoke(CurrentGameState.Map.GameState);
+			}
+		}
 
         public void Dispose()
         {
-            this.Stop();
+			this.isDisposed = true;
+			this.Stop();
             this.waitForConnection.Dispose();
             this.net_Listener.Close();
         }

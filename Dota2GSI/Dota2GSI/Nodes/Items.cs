@@ -95,7 +95,6 @@ namespace Dota2GSI.Nodes
                 if (inventory_item.Name == itemname)
                     return true;
             }
-
             return false;
         }
 
@@ -111,7 +110,6 @@ namespace Dota2GSI.Nodes
                 if (stash_item.Name == itemname)
                     return true;
             }
-
             return false;
         }
 
@@ -128,7 +126,6 @@ namespace Dota2GSI.Nodes
                 if (this.inventory[x].Name == itemname)
                     return x;
             }
-
             return index;
         }
 
@@ -145,7 +142,6 @@ namespace Dota2GSI.Nodes
                 if (this.stash[x].Name == itemname)
                     return x;
             }
-
             return index;
         }
     }

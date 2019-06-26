@@ -47,13 +47,24 @@ namespace Dota2GSI.Nodes
 
         internal T GetEnum<T>(string Name)
         {
-            Newtonsoft.Json.Linq.JToken value;
-            
-            if(_ParsedData.TryGetValue(Name, out value) && !String.IsNullOrWhiteSpace(value.ToString()))
-                return (T)Enum.Parse(typeof(T), value.ToString(), true);
-            else
-                return (T)Enum.Parse(typeof(T), "Undefined", true);
-        }
+			Newtonsoft.Json.Linq.JToken value;
+
+			if (_ParsedData.TryGetValue(Name, out value) && !string.IsNullOrWhiteSpace(value.ToString()))
+			{
+				try
+				{
+					return (T)Enum.Parse(typeof(T), value.ToString(), true);
+				}
+				catch
+				{
+					return (T)Enum.Parse(typeof(T), "Undefined", true);
+				}
+			}
+			else
+			{
+				return (T)Enum.Parse(typeof(T), "Undefined", true);
+			}
+		}
 
         internal bool GetBool(string Name)
         {

@@ -103,11 +103,6 @@
         public readonly int GoldUnreliable;
 
         /// <summary>
-        /// Player's gold per minute
-        /// </summary>
-        public readonly int GoldPerMinute;
-
-        /// <summary>
         /// Player's amount of gold from hero kills
         /// </summary>
         public readonly int GoldFromHeroKills;
@@ -117,20 +112,25 @@
         /// </summary>
         public readonly int GoldFromCreepKills;
 
-        /// <summary>
-        /// Player's amount of gold  shared from team income
-        /// </summary>
-        public readonly int GoldFromShared;
+		/// <summary>
+		/// Player's gold from passive income
+		/// </summary>
+		public readonly int GoldFromIncome;
 
-        /// <summary>
-        /// Player's gold per minute
-        /// </summary>
-        public readonly int GoldPerMinute;
+		/// <summary>
+		/// Player's gold from shared from team income
+		/// </summary>
+		public readonly int GoldFromShared;
 
-        /// <summary>
-        /// Player's experience per minute
-        /// </summary>
-        public readonly int ExperiencePerMinute;
+		/// <summary>
+		/// Player's gold per minute
+		/// </summary>
+		public readonly int GoldPerMinute;
+
+		/// <summary>
+		/// Player's experience per minute
+		/// </summary>
+		public readonly int ExperiencePerMinute;
 
         internal Player(string json_data) : base(json_data)
         {
