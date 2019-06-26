@@ -71,6 +71,17 @@
         /// </summary>
         public readonly int KillStreak;
 
+		/// <summary>
+		/// Player's kill count on each victim <not implemented>
+		/// </summary>
+		public readonly string KillList; 
+
+
+        /// <summary>
+        /// Player's actions per minute
+        /// </summary>
+        public readonly int CommandsIssued;
+
         /// <summary>
         /// Player's team
         /// </summary>
@@ -92,7 +103,27 @@
         public readonly int GoldUnreliable;
 
         /// <summary>
-        /// PLayer's gold per minute
+        /// Player's gold per minute
+        /// </summary>
+        public readonly int GoldPerMinute;
+
+        /// <summary>
+        /// Player's amount of gold from hero kills
+        /// </summary>
+        public readonly int GoldFromHeroKills;
+
+        /// <summary>
+        /// Player's amount of gold from creep kills
+        /// </summary>
+        public readonly int GoldFromCreepKills;
+
+        /// <summary>
+        /// Player's amount of gold  shared from team income
+        /// </summary>
+        public readonly int GoldFromShared;
+
+        /// <summary>
+        /// Player's gold per minute
         /// </summary>
         public readonly int GoldPerMinute;
 
@@ -112,10 +143,16 @@
             LastHits = GetInt("last_hits");
             Denies = GetInt("denies");
             KillStreak = GetInt("kill_streak");
+            CommandsIssued = GetInt("commands_issued");
+            //KillList = GetString("kill_list"); //not implemented
             Team = GetEnum<PlayerTeam>("team_name");
             Gold = GetInt("gold");
             GoldReliable = GetInt("gold_reliable");
             GoldUnreliable = GetInt("gold_unreliable");
+            GoldFromHeroKills = GetInt("gold_from_hero_kills");
+            GoldFromCreepKills = GetInt("gold_from_creep_kills");
+            GoldFromIncome = GetInt("gold_from_income");
+            GoldFromShared = GetInt("gold_from_shared");
             GoldPerMinute = GetInt("gpm");
             ExperiencePerMinute = GetInt("xpm");
         }

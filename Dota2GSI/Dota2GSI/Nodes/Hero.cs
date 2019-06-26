@@ -4,7 +4,17 @@
     /// Class representing hero information
     /// </summary>
     public class Hero : Node
-    {
+    {		
+        /// <summary>
+		/// Mapcoordinate x position of hero
+		/// </summary>
+        public readonly int XPos;
+
+        /// <summary>
+		/// Mapcoordinate y position of hero
+		/// </summary>
+        public readonly int YPos;
+
         /// <summary>
         /// Hero ID
         /// </summary>
@@ -106,12 +116,59 @@
         public readonly bool IsBreak;
 
         /// <summary>
+        /// A boolean representing whether the hero is smoked
+        /// </summary>
+        public readonly bool IsSmoked;
+
+        /// <summary>
         /// A boolean representing whether the hero is debuffed
         /// </summary>
         public readonly bool HasDebuff;
 
+        /// <summary>
+		/// A boolean representing whether the hero leveled talent 1
+		/// </summary>
+		public readonly bool Talent1;
+
+		/// <summary>
+		/// A boolean representing whether the hero leveled talent 2
+        /// </summary>
+		public readonly bool Talent2;
+
+		/// <summary>
+		/// A boolean representing whether the hero leveled talent 3
+		/// </summary>
+		public readonly bool Talent3;
+
+		/// <summary>
+		/// A boolean representing whether the hero leveled talent 4
+		/// </summary>
+		public readonly bool Talent4;
+
+		/// <summary>
+		/// A boolean representing whether the hero leveled talent 5
+		/// </summary>
+		public readonly bool Talent5;
+
+		/// <summary>
+		/// A boolean representing whether the hero leveled talent 6
+		/// </summary>
+		public readonly bool Talent6;
+
+		/// <summary>
+		/// A boolean representing whether the hero leveled talent 7
+		/// </summary>
+		public readonly bool Talent7;
+
+		/// <summary>
+		/// A boolean representing whether the hero leveled talent 8
+		/// </summary>
+		public readonly bool Talent8;
+
         internal Hero(string json_data) : base(json_data)
         {
+            XPos = GetInt("xpos");
+            YPos = GetInt("ypos");
             ID = GetInt("id");
             Name = GetString("name");
             Level = GetInt("level");
@@ -132,7 +189,16 @@
             IsHexed = GetBool("hexed");
             IsMuted = GetBool("muted");
             IsBreak = GetBool("break");
+            IsSmoked = GetBool("smoked");
             HasDebuff = GetBool("has_debuff");
+            Talent1 = GetBool("talent_1");
+			Talent2 = GetBool("talent_2");
+			Talent3 = GetBool("talent_3");
+			Talent4 = GetBool("talent_4");
+			Talent5 = GetBool("talent_5");
+			Talent6 = GetBool("talent_6");
+			Talent7 = GetBool("talent_7");
+			Talent8 = GetBool("talent_8");
         }
     }
 }

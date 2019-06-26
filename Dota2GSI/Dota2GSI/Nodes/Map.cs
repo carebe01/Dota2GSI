@@ -128,6 +128,11 @@
         public readonly DOTA_GameState GameState;
 
         /// <summary>
+        /// A boolean representing if paused or not
+        /// </summary>
+        public readonly Paused;
+
+        /// <summary>
         /// The winning team
         /// </summary>
         public readonly PlayerTeam Win_team;
@@ -151,6 +156,7 @@
             IsDaytime = GetBool("daytime");
             IsNightstalker_Night = GetBool("nightstalker_night");
             GameState = GetEnum<DOTA_GameState>("game_state");
+            Paused = GetBool("paused");
             Win_team = GetEnum<PlayerTeam>("win_team");
             CustomGameName = GetString("customgamename");
             Ward_Purchase_Cooldown = GetInt("ward_purchase_cooldown");
