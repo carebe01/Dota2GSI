@@ -1,11 +1,10 @@
-C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.csprojAssemblyReference.cache
-C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.csproj.CoreCompileInputs.cache
-C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.AssemblyInfoInputs.cache
-C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.AssemblyInfo.cs
 C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\bin\Debug\netstandard2.0\Dota2GSI.deps.json
 C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\bin\Debug\netstandard2.0\Dota2GSI.dll
 C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\bin\Debug\netstandard2.0\Dota2GSI.pdb
 C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.csproj.CoreCompileInputs.cache
+C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.AssemblyInfoInputs.cache
+C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.AssemblyInfo.cs
 C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.csproj.CopyComplete
 C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.dll
 C:\Users\carl\source\repos\carebe01\Dota2GSI\Dota2GSI\obj\Debug\netstandard2.0\Dota2GSI.pdb
