@@ -19,6 +19,7 @@ namespace Dota2GSI
         private HttpListener net_Listener;
         private AutoResetEvent waitForConnection = new AutoResetEvent(false);
         private GameState currentGameState;
+        private string currentConsoleState;
 		private Nodes.DOTA_GameState previousMapState;
 
 		public GameState CurrentGameState
@@ -33,6 +34,21 @@ namespace Dota2GSI
                 RaiseOnNewGameState();
             }
         }
+
+        public string CurrentConsoleState
+        {
+            get
+            {
+                return currentConsoleState;
+            }
+
+            private set
+            {
+                currentConsoleState = value;
+                RaiseOnNewGameState();
+            }
+        }
+
 
         /// <summary>
         /// Gets the port that is being listened
@@ -159,7 +175,10 @@ namespace Dota2GSI
                     response.Close();
                 }
                 CurrentGameState = new GameState(JSON);
-				previousMapState = CurrentGameState.Map.GameState;
+                CurrentConsoleState = JSON;
+			    
+                previousMapState = CurrentGameState.Map.GameState;
+
 			}
             catch (ObjectDisposedException)
             {

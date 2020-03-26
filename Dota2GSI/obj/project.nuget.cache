@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "N+lexyOletUOZnXSSLv8K1xrbHyfCoWNQKCb/QmfBmmbJQmQrwpJjJrVrGvSWh/f8i5IFiq6X7UxgmUbCpBVvA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\carl\\source\\repos\\carebe01\\Dota2GSI\\Dota2GSI\\Dota2GSI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\carl\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\carl\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
