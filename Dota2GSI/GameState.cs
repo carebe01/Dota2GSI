@@ -1,5 +1,6 @@
 ﻿using System;
 using Dota2GSI.Nodes;
+using Newtonsoft.Json.Linq;
 
 namespace Dota2GSI
 {
@@ -8,7 +9,7 @@ namespace Dota2GSI
     /// </summary>
     public class GameState
     {
-        private Newtonsoft.Json.Linq.JObject _ParsedData;
+        private JObject _ParsedData;
         private string json;
 
         private Auth auth;
@@ -33,7 +34,7 @@ namespace Dota2GSI
             }
 
             json = json_data;
-            _ParsedData = Newtonsoft.Json.Linq.JObject.Parse(json_data);
+            _ParsedData = JObject.Parse(json_data);
         }
 
         /// <summary>

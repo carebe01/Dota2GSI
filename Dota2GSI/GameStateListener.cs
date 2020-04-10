@@ -5,6 +5,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
 
+
 namespace Dota2GSI
 {
     public delegate void NewGameStateHandler(GameState gamestate);
@@ -35,6 +36,7 @@ namespace Dota2GSI
             }
         }
 
+        //TODO: IS IT NEEDED?
         public string CurrentConsoleState
         {
             get

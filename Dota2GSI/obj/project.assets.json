@@ -180,26 +180,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carl\\.nuget\\packages\\": {}
+    "C:\\Users\\carl\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carl\\source\\repos\\carebe01\\Dota2GSI\\Dota2GSI\\Dota2GSI.csproj",
+      "projectUniqueName": "C:\\Users\\carl\\Documents\\repos\\carebe01\\Dota2GSI\\Dota2GSI\\Dota2GSI.csproj",
       "projectName": "Dota2GSI",
-      "projectPath": "C:\\Users\\carl\\source\\repos\\carebe01\\Dota2GSI\\Dota2GSI\\Dota2GSI.csproj",
+      "projectPath": "C:\\Users\\carl\\Documents\\repos\\carebe01\\Dota2GSI\\Dota2GSI\\Dota2GSI.csproj",
       "packagesPath": "C:\\Users\\carl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carl\\source\\repos\\carebe01\\Dota2GSI\\Dota2GSI\\obj\\",
+      "outputPath": "C:\\Users\\carl\\Documents\\repos\\carebe01\\Dota2GSI\\Dota2GSI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\carl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\carl\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -233,7 +235,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

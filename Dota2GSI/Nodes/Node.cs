@@ -1,10 +1,11 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace Dota2GSI.Nodes
 {
     public class Node
     {
-        protected Newtonsoft.Json.Linq.JObject _ParsedData;
+        protected JObject _ParsedData;
 
         internal Node(string json_data)
         {
@@ -12,12 +13,12 @@ namespace Dota2GSI.Nodes
             {
                 json_data = "{}";
             }
-            _ParsedData = Newtonsoft.Json.Linq.JObject.Parse(json_data);
+            _ParsedData = JObject.Parse(json_data);
         }
 
         internal string GetString(string Name)
         {
-            Newtonsoft.Json.Linq.JToken value;
+            JToken value;
             
             if(_ParsedData.TryGetValue(Name, out value))
                 return value.ToString();
@@ -27,7 +28,7 @@ namespace Dota2GSI.Nodes
 
         internal int GetInt(string Name)
         {
-            Newtonsoft.Json.Linq.JToken value;
+            JToken value;
             
             if(_ParsedData.TryGetValue(Name, out value))
                 return Convert.ToInt32(value.ToString());
@@ -37,7 +38,7 @@ namespace Dota2GSI.Nodes
 
         internal long GetLong(string Name)
         {
-            Newtonsoft.Json.Linq.JToken value;
+            JToken value;
 
             if (_ParsedData.TryGetValue(Name, out value))
                 return Convert.ToInt64(value.ToString());
@@ -47,7 +48,7 @@ namespace Dota2GSI.Nodes
 
         internal T GetEnum<T>(string Name)
         {
-			Newtonsoft.Json.Linq.JToken value;
+			JToken value;
 
 			if (_ParsedData.TryGetValue(Name, out value) && !string.IsNullOrWhiteSpace(value.ToString()))
 			{
@@ -68,7 +69,7 @@ namespace Dota2GSI.Nodes
 
         internal bool GetBool(string Name)
         {
-            Newtonsoft.Json.Linq.JToken value;
+            JToken value;
             
             if(_ParsedData.TryGetValue(Name, out value) && value.ToObject<bool>())
                 return value.ToObject<bool>();
