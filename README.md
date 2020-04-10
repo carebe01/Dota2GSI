@@ -58,7 +58,9 @@ gsl.NewGameState += new NewGameStateHandler(OnNewGameState);
 
 ## TODO
 Add Buildings
+
 Add Wearables
+
 Update layout
 
 ## Layout
