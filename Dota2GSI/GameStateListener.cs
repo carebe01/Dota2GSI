@@ -160,8 +160,6 @@ namespace Dota2GSI
                     response.Close();
                 }
                 CurrentGameState = new GameState(JSON);
-                CurrentConsoleState = JSON;
-			    
                 previousMapState = CurrentGameState.Map.GameState;
 
 			}
