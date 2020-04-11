@@ -56,6 +56,13 @@ gsl.NewGameState += new NewGameStateHandler(OnNewGameState);
 
 4. Use `GameStateListener.Start()` to start listening for HTTP POST requests from the game client. This method will return `false` if starting the listener fails (most likely due to insufficient privileges).
 
+## TODO
+Add Buildings
+
+Add Wearables
+
+Update layout
+
 ## Layout
 
 ```
