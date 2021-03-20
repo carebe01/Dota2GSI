@@ -98,7 +98,7 @@
     }
 
     /// <summary>
-    /// Class representing information about the map
+    /// Class representing information about the map that is always available
     /// </summary>
     public class Map : Node
     {
@@ -157,6 +157,31 @@
         /// </summary>
         public readonly int Ward_Purchase_Cooldown;
 
+        /// <summary>
+        /// The cooldown on ward purchases for Radiant
+        /// </summary>
+        public readonly int Radiant_Ward_Purchase_Cooldown;
+
+        /// <summary>
+        /// The cooldown on ward purchases for Dire
+        /// </summary>
+        public readonly int Dire_Ward_Purchase_Cooldown;
+
+        /// <summary>
+        /// The status of Roshan, can be alive or dead
+        /// </summary>
+        public readonly string Roshan_State;
+
+        /// <summary>
+        /// The time until Roshan respawns
+        /// </summary>
+        public readonly int Roshan_State_End_Seconds;
+
+        /// <summary>
+        /// The winchance of Radiant team
+        /// </summary>
+        public readonly int Radiant_Win_Chance;
+
         internal Map(string json_data) : base(json_data)
         {
             Name = GetString("name");
@@ -170,6 +195,11 @@
             Win_team = GetEnum<PlayerTeam>("win_team");
             CustomGameName = GetString("customgamename");
             Ward_Purchase_Cooldown = GetInt("ward_purchase_cooldown");
+            Radiant_Ward_Purchase_Cooldown = GetInt("radiant_ward_purchase_cooldown");
+            Dire_Ward_Purchase_Cooldown = GetInt("dire_ward_purchase_cooldown");
+            Roshan_State = GetString("roshan_state");
+            Roshan_State_End_Seconds = GetInt("roshan_state_end_seconds");
+            Radiant_Win_Chance = GetInt("radiant_win_chance");          
         }
     }
 }

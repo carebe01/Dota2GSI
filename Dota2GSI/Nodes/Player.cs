@@ -132,6 +132,72 @@
 		/// </summary>
 		public readonly int ExperiencePerMinute;
 
+        /// <summary>
+        /// Player's net worth
+        /// </summary>
+        public readonly int NetWorth;
+
+        /// <summary>
+        /// Players hero damage done
+        /// </summary>
+        public readonly int HeroDamage;
+
+        /// <summary>
+        /// Amount of wards purchased by player
+        /// </summary>
+        public readonly int WardsPurchased;
+
+        /// <summary>
+        /// Amount of wards placed by player
+        /// </summary>
+        public readonly int WardsPlaced;
+
+        /// <summary>
+        /// Amount of wards destroyed by player
+        /// </summary>
+        public readonly int WardsDestroyed;
+
+        /// <summary>
+        /// Amount of runes used by player
+        /// </summary>
+        public readonly int RunesActivated;
+
+        /// <summary>
+        /// Amount of camps stacked by player
+        /// </summary>
+        public readonly int CampsStacked;
+
+        /// <summary>
+        /// Players spent gold on support items (wards, smokes, dust)
+        /// </summary>
+        public readonly int SupportGoldSpent;
+
+        /// <summary>
+        /// Players gold spent on consumables
+        /// </summary>
+        public readonly int ConsumableGoldSpent;
+
+        /// <summary>
+        /// Players spent gold on items
+        /// </summary>
+        public readonly int ItemGoldSpent;
+
+        /// <summary>
+        /// Players lost gold from deaths
+        /// </summary>
+        public readonly int GoldLostToDeath;
+
+        /// <summary>
+        /// Players spent gold on buy backs
+        /// </summary>
+        public readonly int GoldSpentOnBuybacks;
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="json_data"></param>
+
         internal Player(string json_data) : base(json_data)
         {
             SteamID = GetString("steamid");
@@ -144,7 +210,6 @@
             Denies = GetInt("denies");
             KillStreak = GetInt("kill_streak");
             CommandsIssued = GetInt("commands_issued");
-            //KillList = GetString("kill_list"); //not implemented
             Team = GetEnum<PlayerTeam>("team_name");
             Gold = GetInt("gold");
             GoldReliable = GetInt("gold_reliable");
@@ -155,6 +220,19 @@
             GoldFromShared = GetInt("gold_from_shared");
             GoldPerMinute = GetInt("gpm");
             ExperiencePerMinute = GetInt("xpm");
+            NetWorth = GetInt("net_worth");
+            HeroDamage = GetInt("hero_damage");
+            WardsPurchased = GetInt("wards_purchased");
+            WardsPlaced = GetInt("wards_placed");
+            WardsDestroyed = GetInt("wards_destroyed");
+            RunesActivated = GetInt("runes_activated");
+            CampsStacked = GetInt("camps_stacked");
+            SupportGoldSpent = GetInt("support_gold_spent");
+            ConsumableGoldSpent = GetInt("consumable_gold_spent");
+            ItemGoldSpent = GetInt("item_gold_spent");
+            GoldLostToDeath = GetInt("gold_lost_to_death");
+            GoldSpentOnBuybacks = GetInt("gold_spent_on_buybacks");
+            KillList = GetString("kill_list"); //not implemented
         }
     }
 }

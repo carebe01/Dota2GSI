@@ -11,7 +11,7 @@
         public readonly string Name;
 
 		/// <summary>
-		/// Item purchaser
+		/// Item purchaser, player number
 		/// </summary>
 		public readonly int Purchaser;
 

@@ -125,12 +125,17 @@
         /// </summary>
         public readonly bool HasDebuff;
 
-		/// Talent only results in true or false. eg in pairs 1+2 = true when skilled one of them skilled.
+        /// <summary>
+        /// If unit is selected
+        /// </summary>
+        public readonly bool SelectedUnit;
+
+        /// Talent only results in true or false. eg in pairs 1+2 = true when skilled one of them skilled.
 
         /// <summary>
-		/// A boolean representing whether the hero leveled talent 1
-		/// </summary>
-		public readonly bool Talent1;
+        /// A boolean representing whether the hero leveled talent 1
+        /// </summary>
+        public readonly bool Talent1;
 
 		/// <summary>
 		/// A boolean representing whether the hero leveled talent 2
@@ -193,6 +198,7 @@
             IsBreak = GetBool("break");
             IsSmoked = GetBool("smoked");
             HasDebuff = GetBool("has_debuff");
+            SelectedUnit = GetBool("selected_unit");
             Talent1 = GetBool("talent_1");
 			Talent2 = GetBool("talent_2");
 			Talent3 = GetBool("talent_3");
@@ -201,6 +207,7 @@
 			Talent6 = GetBool("talent_6");
 			Talent7 = GetBool("talent_7");
 			Talent8 = GetBool("talent_8");
+
         }
     }
 }
