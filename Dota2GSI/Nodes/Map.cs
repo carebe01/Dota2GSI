@@ -97,6 +97,25 @@
         Radiant
     }
 
+    public enum RoshanState
+    {
+        /// <summary>
+        /// Alive
+        /// </summary>
+        Alive,
+
+        /// <summary>
+        /// Time until Roshan variable respawn time, starting at 8 mins
+        /// </summary>
+        Respawn_base,
+
+        /// <summary>
+        /// Time until Roshan spawn
+        /// </summary>
+        Respawn_variable
+
+    }
+
     /// <summary>
     /// Class representing information about the map that is always available
     /// </summary>
@@ -170,7 +189,7 @@
         /// <summary>
         /// The status of Roshan, can be alive or dead
         /// </summary>
-        public readonly string Roshan_State;
+        public readonly RoshanState Roshan_State;
 
         /// <summary>
         /// The time until Roshan respawns
@@ -197,7 +216,7 @@
             Ward_Purchase_Cooldown = GetInt("ward_purchase_cooldown");
             Radiant_Ward_Purchase_Cooldown = GetInt("radiant_ward_purchase_cooldown");
             Dire_Ward_Purchase_Cooldown = GetInt("dire_ward_purchase_cooldown");
-            Roshan_State = GetString("roshan_state");
+            Roshan_State = GetEnum<RoshanState>("roshan_state");
             Roshan_State_End_Seconds = GetInt("roshan_state_end_seconds");
             Radiant_Win_Chance = GetInt("radiant_win_chance");          
         }
