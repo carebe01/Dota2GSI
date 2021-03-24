@@ -202,10 +202,6 @@ namespace Dota2GSI.Nodes
 	            {
 		            this.KillList.Add(id, kill.Value<int>());
 	            }
-	            else
-	            {
-		            System.Console.WriteLine("[DOTA2GSI] Warning, could not get victim ID! ID: " + kill.Path);
-	            }
             }
 
             CommandsIssued = GetInt("commands_issued");

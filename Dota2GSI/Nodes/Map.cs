@@ -106,16 +106,20 @@
 	    /// Undefined
 	    /// </summary>
 	    Undefined,
+        
+        /// <summary>
+		/// Alive
+        Alive,
 
 	    /// <summary>
-	    /// Waiting for respawn
+	    /// Countdown till real respawn is revealed
 	    /// </summary>
 	    Respawn_Base,
 
 	    /// <summary>
-	    /// Alive
+	    /// Time until respawn
 	    /// </summary>
-	    Alive,
+	    Respawn_Variable
     }
 
     /// <summary>
@@ -198,6 +202,11 @@
         /// </summary>
         public readonly int RoshanStateEndTime;
 
+        /// <summary>
+		/// The win chance of Radiant Team (SPECTATOR ONLY)
+		/// </summary>
+		public readonly int RadiantWinChance;
+
         internal Map(string json_data) : base(json_data)
         {
             Name = GetString("name");
@@ -213,9 +222,9 @@
             Ward_Purchase_Cooldown = GetInt("ward_purchase_cooldown");
             Radiant_Ward_Purchase_Cooldown = GetInt("radiant_ward_purchase_cooldown");
             Dire_Ward_Purchase_Cooldown = GetInt("dire_ward_purchase_cooldown");
-            System.Console.WriteLine(GetString("roshan_state"));
             RoshanState = GetEnum<RoshanState>("roshan_state");
             RoshanStateEndTime = GetInt("roshan_state_end_seconds");
+            RadiantWinChance = GetInt("radiant_win_chance");
         }
     }
 }
