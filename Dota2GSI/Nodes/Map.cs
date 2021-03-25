@@ -108,11 +108,12 @@
 	    Undefined,
         
         /// <summary>
-		/// Alive
+		/// Roshan is alive
+        /// </summary>
         Alive,
 
 	    /// <summary>
-	    /// Countdown till real respawn is revealed
+	    /// Countdown from 8 minutes until real respawn is revealed
 	    /// </summary>
 	    Respawn_Base,
 

@@ -58,9 +58,7 @@ gsl.NewGameState += new NewGameStateHandler(OnNewGameState);
 
 ## TODO
 Add Buildings
-
 Add Wearables
-
 Update layout
 
 ## Layout
@@ -82,12 +80,19 @@ GameState
     +-- IsDaytime
     +-- IsNightstalker_Night
     +-- GameState
+    +-- Paused
     +-- Win_team
     +-- CustomGameName
     +-- Ward_Purchase_Cooldown
+    +-- Radiant_Ward_Purchase_Cooldown (SPECTATOR ONLY)
+    +-- Dire_Ward_Purchase_Cooldown (SPECTATOR ONLY)
+    +-- Roshan_State (SPECTATOR ONLY)
+    +-- RoshanStateEndTime (SPECTATOR ONLY)
+    +-- Radiant_Win_Chance (SPECTATOR ONLY)
 +-- Player
     +-- SteamID
     +-- Name
+    +-- ProName
     +-- Activity
     +-- Kills
     +-- Deaths
@@ -95,13 +100,29 @@ GameState
     +-- LastHits
     +-- Denies
     +-- KillStreak
+    +-- KillList[]
+        +-- Victim_id, value
+    +-- CommandsIssued
     +-- Team
     +-- Gold
     +-- GoldReliable
     +-- GoldUnreliable
+    +-- GoldFromHeroKills
+    +-- GoldFromCreepKills
+    +-- GoldFromIncome
+    +-- GoldFromShared
     +-- GoldPerMinute
     +-- ExperiencePerMinute
+    +-- NetWorth (SPECTATOR ONLY)
+    +-- HeroDamage (SPECTATOR ONLY)
+    +-- SupportGoldSpent (SPECTATOR ONLY)
+    +-- WardsPurchased (SPECTATOR ONLY)
+    +-- WardsPlaced (SPECTATOR ONLY)
+    +-- WardsDestroyed (SPECTATOR ONLY)
+    +-- RunesActivated (SPECTATOR ONLY)
+    +-- CampsStacked (SPECTATOR ONLY)
 +-- Hero
+    +-- Location (X,Y)
     +-- ID
     +-- Name
     +-- Level
@@ -123,6 +144,8 @@ GameState
     +-- IsMuted
     +-- IsBreak
     +-- HasDebuff
+    +-- SelectedUnit (SPECTATOR ONLY)
+    +-- TalentTreeSpec[]
 +-- Abilities
     +-- Count
     +-- Attributes

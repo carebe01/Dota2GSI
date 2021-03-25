@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="newtonsoft.json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\refs\Newtonsoft.Json.dll</HintPath>
     </Reference>
