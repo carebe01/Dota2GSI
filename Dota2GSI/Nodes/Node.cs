@@ -80,7 +80,7 @@ namespace Dota2GSI.Nodes
 
         internal IJEnumerable<JToken> GetArray(string Name)
         {
-	        Newtonsoft.Json.Linq.JToken value;
+	        JToken value;
 
 	        if (_ParsedData.TryGetValue(Name, out value) && value.HasValues)
 		        return value.Values();

@@ -152,11 +152,6 @@ namespace Dota2GSI.Nodes
 		public readonly int HeroDamage;
 
 		/// <summary>
-		/// Player's gold spent on support items (SPECTATOR ONLY)
-		/// </summary>
-		public readonly int SupportGoldSpent;
-
-		/// <summary>
 		/// The amount of wards the player has purchased (SPECTATOR ONLY)
 		/// </summary>
 		public readonly int WardsPurchased;
@@ -180,6 +175,21 @@ namespace Dota2GSI.Nodes
 		/// The amount of camps stacked by the player (SPECTATOR ONLY)
 		/// </summary>
 		public readonly int CampsStacked;
+
+        /// <summary>
+        /// Player's gold spent on support items (SPECTATOR ONLY)
+        /// </summary>
+        public readonly int SupportGoldSpent;
+
+        /// <summary>
+        /// The amount of gold lost from deaths (SPECTATOR ONLY)
+        /// </summary>
+        public readonly int GoldLostToDeath;
+
+        /// <summary>
+        /// The amount of gold spent on buybacks (SPECTATOR ONLY)
+        /// </summary>
+        public readonly int GoldSpentOnBuybacks;
 
         internal Player(string json_data) : base(json_data)
         {
@@ -217,12 +227,14 @@ namespace Dota2GSI.Nodes
             ExperiencePerMinute = GetInt("xpm");
             NetWorth = GetInt("net_worth");
             HeroDamage = GetInt("hero_damage");
-            SupportGoldSpent = GetInt("support_gold_spent");
             WardsPurchased = GetInt("wards_purchased");
             WardsPlaced = GetInt("wards_placed");
             WardsDestroyed = GetInt("wards_destroyed");
             RunesActivated = GetInt("runes_activated");
             CampsStacked = GetInt("camps_stacked");
+            SupportGoldSpent = GetInt("support_gold_spent");
+            GoldLostToDeath = GetInt("gold_lost_to_death");
+            GoldSpentOnBuybacks = GetInt("gold_spent_on_buybacks");
         }
     }
 }

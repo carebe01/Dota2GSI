@@ -101,7 +101,8 @@ GameState
     +-- Denies
     +-- KillStreak
     +-- KillList[]
-        +-- Victim_id, value
+        +-- id
+        +-- value
     +-- CommandsIssued
     +-- Team
     +-- Gold
@@ -115,12 +116,14 @@ GameState
     +-- ExperiencePerMinute
     +-- NetWorth (SPECTATOR ONLY)
     +-- HeroDamage (SPECTATOR ONLY)
-    +-- SupportGoldSpent (SPECTATOR ONLY)
     +-- WardsPurchased (SPECTATOR ONLY)
     +-- WardsPlaced (SPECTATOR ONLY)
     +-- WardsDestroyed (SPECTATOR ONLY)
     +-- RunesActivated (SPECTATOR ONLY)
     +-- CampsStacked (SPECTATOR ONLY)
+    +-- SupportGoldSpent (SPECTATOR ONLY)
+    +-- GoldLostToDeath (SPECTATOR ONLY)
+    +-- GoldSpentOnBuybacks (SPECTATOR ONLY)
 +-- Hero
     +-- Location (X,Y)
     +-- ID
@@ -143,6 +146,8 @@ GameState
     +-- IsHexed
     +-- IsMuted
     +-- IsBreak
+    +-- HasAghanimsScepter
+    +-- HasAghanimsShard
     +-- HasDebuff
     +-- SelectedUnit (SPECTATOR ONLY)
     +-- TalentTreeSpec[]
@@ -166,6 +171,9 @@ GameState
     +-- GetStashAt( index )
     +-- StashContains( itemname )
     +-- StashIndexOf( itemname )
+    +-- GetTeleport
+    +-- GetNeutral
+    +-- NeutralContains
 +-- Previously (Previous information from Game State)
 +-- Added (Added information to the new Game State)
 ```

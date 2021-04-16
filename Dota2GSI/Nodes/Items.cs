@@ -10,6 +10,8 @@ namespace Dota2GSI.Nodes
     {
         private List<Item> inventory = new List<Item>();
         private List<Item> stash = new List<Item>();
+        private List<Item> neutral = new List<Item>();
+        private List<Item> teleport = new List<Item>();
 
         /// <summary>
         /// Number of items in the inventory
@@ -23,7 +25,6 @@ namespace Dota2GSI.Nodes
         {
             get
             {
-                // Use ToList to make a copy, so original list is safe even when casted
                 return this.inventory.ToList();
             }
         }
@@ -40,8 +41,29 @@ namespace Dota2GSI.Nodes
         {
             get
             {
-                // Use ToList to make a copy, so original list is safe even when casted
                 return this.stash.ToList();
+            }
+        }
+
+        /// <summary>
+        /// Gets the IEnumerable of the neutral slot
+        /// </summary>
+        public IEnumerable<Item> Neutral
+        {
+            get
+            {
+                return this.neutral.ToList();
+            }
+        }
+
+        /// <summary>
+        /// Gets the IEnumerable of the teleport slot
+        /// </summary>
+        public IEnumerable<Item> Teleport
+        {
+            get
+            {
+                return this.teleport.ToList();
             }
         }
 
@@ -52,8 +74,12 @@ namespace Dota2GSI.Nodes
             {
                 if (item_slot.StartsWith("slot"))
                     this.inventory.Add(new Item(_ParsedData[item_slot].ToString()));
-                else
+                else if (item_slot.StartsWith("stash"))
                     this.stash.Add(new Item(_ParsedData[item_slot].ToString()));
+                else if (item_slot.StartsWith("neutral"))
+                    this.neutral.Add(new Item(_ParsedData[item_slot].ToString()));
+                else if (item_slot.StartsWith("teleport"))
+                    this.teleport.Add(new Item(_ParsedData[item_slot].ToString()));
             }
         }
 
@@ -84,6 +110,30 @@ namespace Dota2GSI.Nodes
         }
 
         /// <summary>
+        /// Gets the teleport item
+        /// </summary>
+        /// <returns></returns>
+        public Item GetTeleport()
+        {
+            if (!teleport.Any())
+                return new Item("");
+
+            return teleport[0];
+        }
+
+        /// <summary>
+        /// Gets the neutral item
+        /// </summary>
+        /// <returns></returns>
+        public Item GetNeutral()
+        {
+            if (!neutral.Any())
+                return new Item("");
+
+            return neutral[0];
+        }
+
+        /// <summary>
         /// Checks if item exists in the inventory
         /// </summary>
         /// <param name="itemname">The item name</param>
@@ -108,6 +158,21 @@ namespace Dota2GSI.Nodes
             foreach (Item stash_item in this.stash)
             {
                 if (stash_item.Name == itemname)
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks if item exists in the neutral slot
+        /// </summary>
+        /// <param name="itemname">The item name</param>
+        /// <returns>A boolean if item is in the stash</returns>
+        public bool NeutralContains(string itemname)
+        {
+            foreach (Item neutral_item in this.neutral)
+            {
+                if (neutral_item.Name == itemname)
                     return true;
             }
             return false;

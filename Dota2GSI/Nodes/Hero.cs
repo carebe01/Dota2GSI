@@ -1,22 +1,29 @@
-﻿namespace Dota2GSI.Nodes
+﻿using System;
+
+namespace Dota2GSI.Nodes
 {
-	public enum TalentTreeSpec
-	{
-		/// <summary>
-		/// Nothing has been selected at this tier
-		/// </summary>
-		None = 0,
+    public enum TalentTreeSpec
+    {
+        /// <summary>
+        /// Nothing has been selected at this tier
+        /// </summary>
+        None,
 
-		/// <summary>
-		/// The left side of the tree has been selected at this tier
-		/// </summary>
-		Left,
+        /// <summary>
+        /// The left side of the tree has been selected at this tier
+        /// </summary>
+        Left,
 
-		/// <summary>
-		/// The right side of the tree has been selected at this tier
-		/// </summary>
-		Right
-	}
+        /// <summary>
+        /// The right side of the tree has been selected at this tier
+        /// </summary>
+        Right,
+
+        /// <summary>
+        /// Both sides of the tree has been selected at this tier, hero above lvl 25
+        /// </summary>
+        Both
+    }
 
     /// <summary>
     /// Class representing hero information
@@ -24,11 +31,11 @@
     public class Hero : Node
     {
 
-	    /// <summary>
-	    /// Location of the Hero on the map
-	    /// </summary>
-	    public readonly (int X, int Y) Location;
-        
+        /// <summary>
+        /// Location of the Hero on the map
+        /// </summary>
+        public readonly (int X, int Y) Location;
+
         /// <summary>
         /// Hero ID
         /// </summary>
@@ -130,6 +137,16 @@
         public readonly bool IsBreak;
 
         /// <summary>
+        /// A boolean representing whether the hero has aghanims scepter
+        /// </summary>
+        public readonly bool HasAghanimsScepter;
+
+        /// <summary>
+        /// A boolean representing whether the hero has aghanims shard
+        /// </summary>
+        public readonly bool HasAghanimsShard;
+
+        /// <summary>
         /// A boolean representing whether the hero is smoked
         /// </summary>
         public readonly bool IsSmoked;
@@ -148,10 +165,10 @@
         /// The chosen talents for the Hero. Starts at the bottom
         /// </summary>
         public readonly TalentTreeSpec[] TalentTree;
-        
+
         internal Hero(string json_data) : base(json_data)
         {
-	        Location = (GetInt("xpos"), GetInt("ypos"));
+            Location = (GetInt("xpos"), GetInt("ypos"));
             ID = GetInt("id");
             Name = GetString("name");
             Level = GetInt("level");
@@ -172,25 +189,36 @@
             IsHexed = GetBool("hexed");
             IsMuted = GetBool("muted");
             IsBreak = GetBool("break");
+            HasAghanimsScepter = GetBool("aghanims_scepter");
+            HasAghanimsShard = GetBool("aghanims_shard");
             IsSmoked = GetBool("smoked");
             HasDebuff = GetBool("has_debuff");
             SelectedUnit = GetBool("selected_unit");
 
             TalentTree = new TalentTreeSpec[4];
             for (int i = 0; i < TalentTree.Length; i++)
-	            TalentTree[i] = TalentTreeSpec.None;
+            {
+                TalentTree[i] = TalentTreeSpec.None;
+            }
 
             for (int i = 1; i <= 8; i++)
             {
-	            bool taken = GetBool("talent_" + i);
-	            int index = ((i + 1) / 2) - 1;
-	            if (taken)
-	            {
-		            if (i % 2 != 0)
-			            TalentTree[index] = TalentTreeSpec.Right;
-		            else
-			            TalentTree[index] = TalentTreeSpec.Left;
-	            }
+                int index = ((i + 1) / 2) - 1;
+                bool taken = GetBool("talent_" + i);
+                bool next = GetBool("talent_" + (i + 1));
+
+                if (taken)
+                { 
+                    if (next && i % 2 != 0)
+                    {
+                        TalentTree[index] = TalentTreeSpec.Both;
+                        i++;
+                    }
+                    else if (i % 2 != 0)
+                        TalentTree[index] = TalentTreeSpec.Right;
+                    else
+                        TalentTree[index] = TalentTreeSpec.Left;
+                }
             }
         }
     }
